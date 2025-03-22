@@ -1,0 +1,171 @@
+Preprocessing GRN data from SCING_GRN.csv
+Task: link_prediction, Normalization method: log
+Split ratios - Validation: 0.1, Test: 0.1, Negative ratio: 1.0
+Loading GRN data from SCING_GRN.csv
+Total edges: 32206
+Unique TFs: 11466
+Unique targets: 12728
+Min importance: 480.5948977818843
+Max importance: 9997.7711143448
+Mean importance: 741.9660392187104
+Loaded data with 32206 edges
+Total unique nodes: 13570
+Number of unique nodes: 13570
+Importance value statistics before threshold calculation:
+  Min: 480.5948977818843
+  Max: 9997.7711143448
+  Mean: 741.9660392187104
+  Median: 643.2815813109335
+  NaNs: 0
+  Infs: 0
+Successfully calculated percentiles: [50, 75, 90]
+Corresponding thresholds: [643.2815813109335, 813.5140222842833, 1056.4951381251822]
+Created positive edge labels using threshold: 813.5140222842833
+Positive edges: 8052.0 (25.00%)
+Created edge index with shape torch.Size([2, 32206]) and edge attributes with shape torch.Size([32206, 1])
+Node feature statistics:
+  Min: 0.000000
+  Max: 1.000000
+  Mean: 0.084059
+  NaNs: 0
+  Infs: 0
+Created node features with shape torch.Size([13570, 8])
+Using importance scores as edge labels for link prediction
+Edge label min: 0.0, max: 1.0
+Splitting 32206 edges - Val ratio: 0.1, Test ratio: 0.1
+Split sizes - Train: 25766, Val: 3220, Test: 3220
+Generating negative samples - Train: 25766, Val: 3220, Test: 3220
+
+Generating train negative samples:
+Creating negative samples. Num nodes: 13570, Requested samples: 25766
+Positive edges: 25766
+Number of existing edges in set: 32206
+Generated 25766 negative edges after 25780 attempts
+Positive to negative ratio: 25766:25766 = 1.00
+
+Generating validation negative samples:
+Creating negative samples. Num nodes: 13570, Requested samples: 3220
+Positive edges: 3220
+Number of existing edges in set: 57972
+Generated 3220 negative edges after 3220 attempts
+Positive to negative ratio: 3220:3220 = 1.00
+
+Generating test negative samples:
+Creating negative samples. Num nodes: 13570, Requested samples: 3220
+Positive edges: 3220
+Number of existing edges in set: 61192
+Generated 3220 negative edges after 3222 attempts
+Positive to negative ratio: 3220:3220 = 1.00
+
+Class balance (positive ratio):
+Train: 0.5000 (25766 pos / 25766 neg)
+Val: 0.5000 (3220 pos / 3220 neg)
+Test: 0.5000 (3220 pos / 3220 neg)
+Saved processed data to processed_data/verified_data/processed_data.pt
+Preprocessing completed. Data saved to processed_data/verified_data
+
+===== Data Structure Verification =====
+Loading data from processed_data/verified_data/processed_data.pt
+
+Data structure:
+  task: <class 'str'>
+  num_nodes: <class 'int'>
+  node_features: Tensor shape: torch.Size([13570, 8]), dtype: torch.float32, NaNs: 0, Infs: 0, Zeros: 17306, Min: 0.0, Max: 1.0
+  train: <class 'dict'>
+  val: <class 'dict'>
+  test: <class 'dict'>
+  node_to_idx: <class 'dict'>
+  idx_to_node: <class 'dict'>
+
+Edge index verification:
+
+Edge attribute verification:
+
+Label distribution:
+  No test labels found in data
+
+Negative sampling verification:
+
+Node feature statistics:
+  Shape: (13570, 8)
+  NaNs: 0
+  Infs: 0
+  Zeros: 17306
+  Min: 0.0
+  Max: 1.0
+  Mean: 0.08405929803848267
+  Std: 0.13761018216609955
+
+Feature-wise statistics:
+  Feature 0:
+    NaNs: 0
+    Infs: 0
+    Zeros: 842
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.2966654300689697
+    Std: 0.1719987541437149
+    Percentiles: 10%=0.1250, 25%=0.1250, 50%=0.2500, 75%=0.3750, 90%=0.5000
+  Feature 1:
+    NaNs: 0
+    Infs: 0
+    Zeros: 2104
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.12491176277399063
+    Std: 0.11486902087926865
+    Percentiles: 10%=0.0000, 25%=0.0526, 50%=0.1053, 75%=0.1579, 90%=0.2632
+  Feature 2:
+    NaNs: 0
+    Infs: 0
+    Zeros: 880
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.1703021377325058
+    Std: 0.1239934042096138
+    Percentiles: 10%=0.0455, 25%=0.0909, 50%=0.1364, 75%=0.2273, 90%=0.3182
+  Feature 3:
+    NaNs: 0
+    Infs: 0
+    Zeros: 11794
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.023729220032691956
+    Std: 0.08271538466215134
+    Percentiles: 10%=0.0000, 25%=0.0000, 50%=0.0000, 75%=0.0000, 90%=0.0889
+  Feature 4:
+    NaNs: 0
+    Infs: 0
+    Zeros: 842
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.05610877647995949
+    Std: 0.07795977592468262
+    Percentiles: 10%=0.0024, 25%=0.0114, 50%=0.0312, 75%=0.0691, 90%=0.1331
+  Feature 5:
+    NaNs: 0
+    Infs: 0
+    Zeros: 1
+    Min: 0.0
+    Max: 1.0
+    Mean: 7.530474249506369e-05
+    Std: 0.008585265837609768
+    Percentiles: 10%=0.0000, 25%=0.0000, 50%=0.0000, 75%=0.0000, 90%=0.0000
+  Feature 6:
+    NaNs: 0
+    Infs: 0
+    Zeros: 1
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.00010334744729334489
+    Std: 0.009029479697346687
+    Percentiles: 10%=0.0000, 25%=0.0000, 50%=0.0000, 75%=0.0000, 90%=0.0000
+  Feature 7:
+    NaNs: 0
+    Infs: 0
+    Zeros: 842
+    Min: 0.0
+    Max: 1.0
+    Mean: 0.0005783150554634631
+    Std: 0.02155924029648304
+    Percentiles: 10%=0.0000, 25%=0.0000, 50%=0.0000, 75%=0.0000, 90%=0.0000
